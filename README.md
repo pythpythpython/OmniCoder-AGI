@@ -92,6 +92,28 @@ OmniCoder-AGI features a continuous learning system that:
 3. Select a repository or create new
 4. Start coding with AGI assistance!
 
+### Command-Line Mode (Codespaces Friendly)
+
+If you prefer operating inside a Codespaces terminal, use the Python CLI that mirrors the UI agent workflow:
+
+```
+# Show engine statistics
+python3 cli/omnicoder_cli.py stats
+
+# Run a single or multi-agent request
+python3 cli/omnicoder_cli.py run "Implement CLI self-upgrade executor" --agents 3 --multi
+
+# Trigger the self-upgrade playbook and execute it immediately
+python3 cli/omnicoder_cli.py upgrade "Upgrade self mode for automation" --auto-execute
+
+# Inspect recent sessions or upgrade queue entries
+python3 cli/omnicoder_cli.py history --target sessions
+python3 cli/omnicoder_cli.py history --target upgrades
+```
+
+The CLI stores activity under `database/sessions/cli_history.jsonl` and `database/training/upgrade_runs/`.  
+PyYAML is optional—if it is installed (`pip install pyyaml`) engine quality data is loaded directly from `_data/agi_engines.yml`.
+
 ### Agent Commands
 
 ```
