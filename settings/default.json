@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "app": {
+    "name": "OmniCoder-AGI",
+    "theme": "dark",
+    "autoSave": true,
+    "learningMode": "continuous"
+  },
+  "github": {
+    "username": "pythpythpython",
+    "email": "pyth.pyth.python@gmail.com",
+    "autoPushMerge": true,
+    "defaultBranch": "main"
+  },
+  "agi": {
+    "defaultBoard": "auto",
+    "multiAgentMode": false,
+    "targetQuality": 1.0,
+    "currentQuality": 0.9927
+  },
+  "mcp": {
+    "activeServers": [
+      "github",
+      "typescript",
+      "python",
+      "java",
+      "kotlin",
+      "csharp",
+      "go",
+      "php",
+      "ruby",
+      "rust",
+      "swift",
+      "openstax"
+    ],
+    "autoConnect": true
+  },
+  "tracking": {
+    "enabled": true,
+    "saveSessionData": true,
+    "exportFormat": "json"
+  },
+  "api": {
+    "endpoints": []
+  }
+}

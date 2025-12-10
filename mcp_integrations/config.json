@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "servers": {
+    "github": {
+      "name": "GitHub MCP Server",
+      "repo": "github/github-mcp-server",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "repository_management",
+        "issues",
+        "pull_requests",
+        "commits",
+        "branches",
+        "actions",
+        "releases",
+        "deployments"
+      ],
+      "authentication": {
+        "type": "pat",
+        "required": true
+      }
+    },
+    "typescript": {
+      "name": "TypeScript SDK",
+      "repo": "modelcontextprotocol/typescript-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "type_analysis",
+        "transpilation",
+        "linting",
+        "formatting",
+        "refactoring"
+      ],
+      "languages": ["typescript", "javascript"]
+    },
+    "python": {
+      "name": "Python SDK",
+      "repo": "modelcontextprotocol/python-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "linting",
+        "testing",
+        "type_checking",
+        "formatting"
+      ],
+      "languages": ["python"]
+    },
+    "java": {
+      "name": "Java SDK",
+      "repo": "modelcontextprotocol/java-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "maven_support",
+        "gradle_support",
+        "testing"
+      ],
+      "languages": ["java"]
+    },
+    "kotlin": {
+      "name": "Kotlin SDK",
+      "repo": "modelcontextprotocol/kotlin-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "coroutines",
+        "android_support"
+      ],
+      "languages": ["kotlin"]
+    },
+    "csharp": {
+      "name": "C# SDK",
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "dotnet_support",
+        "nuget_support"
+      ],
+      "languages": ["csharp", "fsharp", "vb"]
+    },
+    "go": {
+      "name": "Go SDK",
+      "repo": "modelcontextprotocol/go-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "modules",
+        "testing",
+        "benchmarking"
+      ],
+      "languages": ["go"]
+    },
+    "php": {
+      "name": "PHP SDK",
+      "repo": "modelcontextprotocol/php-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "composer_support",
+        "testing"
+      ],
+      "languages": ["php"]
+    },
+    "ruby": {
+      "name": "Ruby SDK",
+      "repo": "modelcontextprotocol/ruby-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "gems_support",
+        "rails_support",
+        "testing"
+      ],
+      "languages": ["ruby"]
+    },
+    "rust": {
+      "name": "Rust SDK",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "cargo_support",
+        "memory_safety",
+        "testing"
+      ],
+      "languages": ["rust"]
+    },
+    "swift": {
+      "name": "Swift SDK",
+      "repo": "modelcontextprotocol/swift-sdk",
+      "type": "official",
+      "status": "active",
+      "capabilities": [
+        "code_analysis",
+        "xcode_support",
+        "ios_development"
+      ],
+      "languages": ["swift"]
+    },
+    "openstax": {
+      "name": "OpenStax MCP Server",
+      "repo": "pythpythpython/openstax-mcp-server",
+      "type": "custom",
+      "status": "active",
+      "capabilities": [
+        "educational_content",
+        "textbook_access",
+        "learning_resources"
+      ]
+    }
+  },
+  "routing": {
+    "frontend": ["typescript", "github"],
+    "backend": ["python", "java", "go", "github"],
+    "mobile": ["swift", "kotlin", "github"],
+    "systems": ["rust", "go", "csharp", "github"],
+    "web": ["php", "ruby", "typescript", "github"],
+    "education": ["openstax", "github"],
+    "general": ["github", "typescript", "python"]
+  }
+}

@@ -1,0 +1,73 @@
+# OmniCoder-AGI Configuration
+# ============================
+# The World's Most Advanced Coding Automation AGI Suite
+
+title: OmniCoder-AGI
+description: "The World's Most Advanced Coding Automation AGI Suite - VS Code Interface with MCP Integration, Self-Learning, Testing, Training, and Hyperparameter Tuning to 100% Quality"
+url: "https://pythpythpython.github.io"
+baseurl: "/OmniCoder-AGI"
+
+# GitHub Info
+github_username: pythpythpython
+github_repo: OmniCoder-AGI
+
+# AGI Configuration
+agi_version: "1.0.0"
+target_quality: 1.0
+learning_mode: continuous
+update_frequency: periodic
+
+# MCP Integrations
+mcp_servers:
+  - name: github
+    repo: github/github-mcp-server
+    enabled: true
+  - name: typescript-sdk
+    repo: modelcontextprotocol/typescript-sdk
+    enabled: true
+  - name: python-sdk
+    repo: modelcontextprotocol/python-sdk
+    enabled: true
+  - name: java-sdk
+    repo: modelcontextprotocol/java-sdk
+    enabled: true
+  - name: kotlin-sdk
+    repo: modelcontextprotocol/kotlin-sdk
+    enabled: true
+  - name: csharp-sdk
+    repo: modelcontextprotocol/csharp-sdk
+    enabled: true
+  - name: go-sdk
+    repo: modelcontextprotocol/go-sdk
+    enabled: true
+  - name: php-sdk
+    repo: modelcontextprotocol/php-sdk
+    enabled: true
+  - name: ruby-sdk
+    repo: modelcontextprotocol/ruby-sdk
+    enabled: true
+  - name: rust-sdk
+    repo: modelcontextprotocol/rust-sdk
+    enabled: true
+  - name: swift-sdk
+    repo: modelcontextprotocol/swift-sdk
+    enabled: true
+  - name: openstax
+    repo: pythpythpython/openstax-mcp-server
+    enabled: true
+
+# Build Settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
