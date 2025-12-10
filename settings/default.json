@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "app": {
     "name": "OmniCoder-AGI",
     "theme": "dark",
@@ -10,13 +10,16 @@
     "username": "pythpythpython",
     "email": "pyth.pyth.python@gmail.com",
     "autoPushMerge": true,
-    "defaultBranch": "main"
+    "defaultBranch": "main",
+    "pat": ""
   },
   "agi": {
     "defaultBoard": "auto",
-    "multiAgentMode": false,
+    "multiAgentMode": true,
     "targetQuality": 1.0,
-    "currentQuality": 0.9927
+    "currentQuality": 0.9927,
+    "maxAgents": 5,
+    "verificationEnabled": true
   },
   "mcp": {
     "activeServers": [
@@ -33,14 +36,39 @@
       "swift",
       "openstax"
     ],
-    "autoConnect": true
+    "autoConnect": true,
+    "customServers": []
   },
   "tracking": {
     "enabled": true,
     "saveSessionData": true,
-    "exportFormat": "json"
+    "exportFormat": "json",
+    "retentionDays": 90
   },
   "api": {
-    "endpoints": []
+    "endpoints": [],
+    "tokens": {}
+  },
+  "training": {
+    "defaultIntensity": "high",
+    "autoTrain": true,
+    "trainOnFailure": true
+  },
+  "upgrade": {
+    "autoUpgrade": false,
+    "upgradeFrequency": "daily",
+    "lastUpgrade": null
+  },
+  "voice": {
+    "enabled": false,
+    "language": "en-US"
+  },
+  "collaboration": {
+    "enabled": true,
+    "defaultRole": "contributor"
+  },
+  "extension": {
+    "serverPort": 52718,
+    "autoStart": false
   }
 }

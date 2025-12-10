@@ -1,227 +1,330 @@
-# 🤖 OmniCoder-AGI
+# OmniCoder-AGI
 
-> **The World's Most Advanced Coding Automation AGI Suite**
+> **The World's Most Advanced Coding Automation Agent CLI**
 
-[![AGI Engines](https://img.shields.io/badge/AGI%20Engines-50+-brightgreen)]()
-[![Quality](https://img.shields.io/badge/Avg%20Quality-99.27%25-success)]()
-[![MCP Servers](https://img.shields.io/badge/MCP%20Servers-12-blue)]()
-[![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-black)]()
+[![Quality](https://img.shields.io/badge/Quality-99.27%25-brightgreen)](https://github.com/pythpythpython/OmniCoder-AGI)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue)](https://python.org)
 
-## 🌟 Overview
-
-OmniCoder-AGI is the world's most advanced coding automation platform, featuring:
-
-- **50+ Specialized AGI Engines** trained to 99.27% quality
-- **VS Code-like Interface** for seamless coding experience
-- **12 MCP (Model Context Protocol) Integrations** for comprehensive language support
-- **Self-Learning System** that continuously improves
-- **Automated Testing, Training, and Hyperparameter Tuning**
-
-🔗 **Live Demo**: [https://pythpythpython.github.io/OmniCoder-AGI](https://pythpythpython.github.io/OmniCoder-AGI)
+OmniCoder-AGI is a comprehensive CLI-based coding automation system that combines multiple AGI engines, MCP (Model Context Protocol) integrations, and advanced training/testing capabilities to provide the ultimate coding assistant experience.
 
 ## 🚀 Features
 
-### 🧠 AGI Engine System
+### Core Capabilities
+- **Multi-Agent Execution**: Run multiple AGI engines on the same task and pick the best result
+- **17 Specialized AGI Boards**: Code architecture, generation, review, testing, security, and more
+- **10 Primary AGI Engines**: Trained to 99.27%+ quality with continuous improvement
+- **12 MCP Integrations**: GitHub, TypeScript, Python, Java, Kotlin, C#, Go, PHP, Ruby, Rust, Swift
 
-| Engine | Quality | Specialty |
-|--------|---------|-----------|
-| **PlanVoice-G4-G3-203** | 99.36% | Master Code Architect |
-| **ImprovePlan-G4-G3-172** | 99.35% | Autonomous Code Generator |
-| **VirtueArchive-G4-G3-152** | 99.30% | Security Analysis |
-| **EvolveChart-G4-G3-171** | 99.28% | Software Architect Prime |
-| **LinguaChart-G4-G3-192** | 99.28% | Code Documentation Expert |
-| **UniteSee-G4-G3-135** | 99.28% | System Integration |
-| **RetainGood-G4-G3-159** | 99.27% | Code Memory Specialist |
-| **PerceiveRise-G4-G3-185** | 99.24% | Bug Detection Specialist |
-| **WiseJust-G4-G3-119** | 99.23% | Knowledge Synthesizer |
-| **MuseEthics-G4-G3-142** | 99.23% | Creative Solution Designer |
+### Advanced Features
+- **🎤 Voice Input**: Hands-free coding with speech recognition
+- **🤝 Real-time Collaboration**: Team coding sessions
+- **🧠 Continuous Learning**: Learns from every interaction
+- **⚙️ Hyperparameter Tuning**: Auto-optimize engine performance
+- **🔄 Self-Upgrade**: Automatic system improvements
+- **🌐 Browser Extension**: Code assistance in your browser
+- **📊 Comprehensive Tracking**: Full session history and analytics
 
-### 📡 MCP Integrations
+### Training & Quality
+- **100% Quality Target**: Continuous training toward perfect quality
+- **Extreme Training Mode**: Maximum intensity training cycles
+- **Test Verification**: Automated testing boards for all outputs
+- **Quality Verification**: Code quality assurance boards
 
-- **GitHub MCP Server** - Repository management, issues, PRs, Actions
-- **TypeScript SDK** - TypeScript/JavaScript analysis
-- **Python SDK** - Python analysis and testing
-- **Java SDK** - Java and Maven/Gradle support
-- **Kotlin SDK** - Kotlin and Android support
-- **C# SDK** - .NET development support
-- **Go SDK** - Go modules and analysis
-- **PHP SDK** - PHP and Composer support
-- **Ruby SDK** - Ruby and Rails support
-- **Rust SDK** - Rust and Cargo support
-- **Swift SDK** - Swift and iOS development
-- **OpenStax MCP** - Educational content integration
+## 📦 Installation
 
-### 🎯 AGI Boards
+### Quick Install
+```bash
+# Clone the repository
+git clone https://github.com/pythpythpython/OmniCoder-AGI.git
+cd OmniCoder-AGI
 
-**Coding Boards:**
-- 🏗️ Code Architecture
-- ⚡ Code Generator
-- 🔍 Code Review
-- 🐛 Bug Detection
-
-**Testing Boards:**
-- 🧪 Unit Testing
-- 🔗 Integration Testing
-- ⚡ Performance Testing
-
-**Documentation Boards:**
-- 📝 Documentation Generator
-- 📖 API Documentation
-
-**Specialized Boards:**
-- 🛡️ Security Analysis
-- 🚀 Optimization
-- ♻️ Refactoring
-
-### 🔄 Self-Learning System
-
-OmniCoder-AGI features a continuous learning system that:
-
-1. **Learns from Interactions** - Every coding session improves the system
-2. **Finds Bleeding-Edge Problems** - Scans GitHub, Stack Overflow, security advisories
-3. **Trains on Real Problems** - Uses actual coding challenges for training
-4. **Hyperparameter Tunes** - Continuously optimizes for 100% quality
-5. **Updates Periodically** - Daily training cycles via GitHub Actions
-
-## 📖 Usage
-
-### Quick Start
-
-1. Visit [https://pythpythpython.github.io/OmniCoder-AGI](https://pythpythpython.github.io/OmniCoder-AGI)
-2. Connect your GitHub account
-3. Select a repository or create new
-4. Start coding with AGI assistance!
-
-### Command-Line Mode (Codespaces Friendly)
-
-If you prefer operating inside a Codespaces terminal, use the Python CLI that mirrors the UI agent workflow:
-
-```
-# Show engine statistics
-python3 cli/omnicoder_cli.py stats
-
-# Run a single or multi-agent request
-python3 cli/omnicoder_cli.py run "Implement CLI self-upgrade executor" --agents 3 --multi
-
-# Trigger the self-upgrade playbook and execute it immediately
-python3 cli/omnicoder_cli.py upgrade "Upgrade self mode for automation" --auto-execute
-
-# Inspect recent sessions or upgrade queue entries
-python3 cli/omnicoder_cli.py history --target sessions
-python3 cli/omnicoder_cli.py history --target upgrades
+# Install with pip
+pip install -e .
 ```
 
-The CLI stores activity under `database/sessions/cli_history.jsonl` and `database/training/upgrade_runs/`.  
-PyYAML is optional—if it is installed (`pip install pyyaml`) engine quality data is loaded directly from `_data/agi_engines.yml`.
-
-### Agent Commands
-
-```
-"Create a React component for user authentication"
-"Fix the bug in the login function"
-"Review this code for security issues"
-"Generate unit tests for the API endpoints"
-"Optimize the database queries"
-"Document this module"
+### With All Optional Dependencies
+```bash
+pip install -e ".[all]"
 ```
 
-### Multi-Agent Mode
+### Optional Extras
+```bash
+# Voice input support
+pip install -e ".[voice]"
 
-Enable Multi-Agent Mode to run multiple AGI engines simultaneously:
-- Compares results from different engines
-- Picks the best solution
-- Notes what was left out and why
+# Rich terminal output
+pip install -e ".[rich]"
 
-### Settings
-
-- **MCP Servers**: Add custom MCP servers via GitHub URL
-- **API Tokens**: Configure OpenAI, Anthropic, or custom APIs
-- **Tracking**: View session statistics and export data
-- **Upgrade**: Request new features or improvements
-
-## 🛠️ Technical Architecture
-
+# Development tools
+pip install -e ".[dev]"
 ```
-OmniCoder-AGI/
-├── index.html                 # Main VS Code-like interface
-├── _config.yml               # Jekyll configuration
-├── _layouts/                 # HTML layouts
-├── _data/
-│   └── agi_engines.yml      # AGI engine configurations
-├── assets/
-│   ├── css/main.css         # VS Code theme styles
-│   └── js/
-│       ├── app.js           # Main application
-│       ├── agi-engine.js    # AGI processing engine
-│       ├── mcp-client.js    # MCP server integration
-│       └── github-integration.js  # GitHub API client
-├── agi_boards/
-│   └── boards_config.json   # Board configurations
-├── mcp_integrations/        # MCP SDK integrations
-├── database/                # Training and session data
-├── .github/workflows/
-│   ├── deploy.yml           # GitHub Pages deployment
-│   └── periodic-update.yml  # Daily training updates
-└── README.md
+
+## 🏁 Quick Start
+
+### Initialize the System
+```bash
+python init_omnicoder.py
 ```
+
+### Basic Usage
+```bash
+# Run a coding task
+omnicoder-agi run "Create a REST API with authentication"
+
+# Multi-agent task (3 agents collaborate)
+omnicoder-agi multi "Build a todo app with React" --agents 3
+
+# View AGI boards
+omnicoder-agi boards
+
+# View engines
+omnicoder-agi engines
+
+# View statistics
+omnicoder-agi stats
+```
+
+### GitHub Integration
+```bash
+# Login with PAT token
+omnicoder-agi github login --token YOUR_GITHUB_PAT
+
+# Check status
+omnicoder-agi github status
+
+# List repositories
+omnicoder-agi github repos
+
+# Browse a repository
+omnicoder-agi github browse --repo owner/repo
+```
+
+### Training & Tuning
+```bash
+# Run training cycle
+omnicoder-agi train --intensity extreme
+
+# Tune hyperparameters
+omnicoder-agi tune --metrics response_quality,code_accuracy
+
+# Run verification
+omnicoder-agi verify "Check code quality"
+```
+
+### Self-Upgrade
+```bash
+# Plan an upgrade
+omnicoder-agi upgrade "Add voice input support"
+
+# Execute upgrade automatically
+omnicoder-agi upgrade "Add new feature" --auto
+```
+
+### MCP Servers
+```bash
+# List MCP servers
+omnicoder-agi mcp list
+
+# Add custom MCP server
+omnicoder-agi mcp add --url https://github.com/user/mcp-server.git
+
+# Route a task to MCPs
+omnicoder-agi mcp route --task "Build Python API" --language python
+```
+
+### Settings Management
+```bash
+# Show all settings
+omnicoder-agi settings show
+
+# Set a specific value
+omnicoder-agi settings set --key agi.targetQuality --value 1.0
+
+# Add API token
+omnicoder-agi settings add-token --name openai --token YOUR_TOKEN
+```
+
+### Memory & History
+```bash
+# Save to memory
+omnicoder-agi memory save --key project_info --data '{"name": "MyApp"}'
+
+# Load from memory
+omnicoder-agi memory load --key project_info
+
+# View session history
+omnicoder-agi history --target sessions --limit 20
+
+# View training history
+omnicoder-agi history --target learning
+```
+
+## 🤖 AGI Boards
+
+| Board | Description | Primary Engine |
+|-------|-------------|----------------|
+| `code-architect` | High-level design and planning | PlanVoice-G4-G3-203 |
+| `code-generator` | Feature implementation | ImprovePlan-G4-G3-172 |
+| `code-reviewer` | Quality and security review | PerceiveRise-G4-G3-185 |
+| `bug-detector` | Bug hunting and diagnostics | PerceiveRise-G4-G3-185 |
+| `unit-testing` | Test generation | PerceiveRise-G4-G3-185 |
+| `doc-generator` | Documentation generation | LinguaChart-G4-G3-192 |
+| `security` | Security analysis | VirtueArchive-G4-G3-152 |
+| `optimization` | Performance tuning | ImprovePlan-G4-G3-172 |
+| `refactoring` | Code cleanup | EvolveChart-G4-G3-171 |
+| `test-verifier` | Test verification | VirtueArchive-G4-G3-152 |
+| `quality-verifier` | Quality verification | PerceiveRise-G4-G3-185 |
+| `hyperparameter-tuner` | Engine optimization | ImprovePlan-G4-G3-172 |
+| `continuous-learner` | Continuous learning | ImprovePlan-G4-G3-172 |
+
+## 🔌 MCP Integrations
+
+The following Model Context Protocol servers are supported:
+
+- **GitHub** - Repository management, issues, PRs, actions
+- **TypeScript** - Type analysis, transpilation, linting
+- **Python** - Code analysis, testing, type checking
+- **Java** - Maven/Gradle support, code analysis
+- **Kotlin** - Coroutines, Android support
+- **C#** - .NET and NuGet support
+- **Go** - Modules, testing, benchmarking
+- **PHP** - Composer support
+- **Ruby** - Rails and gems support
+- **Rust** - Cargo, memory safety analysis
+- **Swift** - Xcode and iOS support
+- **OpenStax** - Educational content
+
+## 🎤 Voice Input
+
+Enable voice input for hands-free coding:
+
+```bash
+# Install voice dependencies
+pip install SpeechRecognition pyaudio
+
+# Use voice input
+omnicoder-agi run "your task" --voice
+```
+
+Voice commands:
+- Say your task naturally
+- "run [task]" - Execute a task
+- "train" - Start training
+- "upgrade" - Self-upgrade
+- "stop" or "exit" - End voice mode
+
+## 🌐 Browser Extension
+
+Generate and use the browser extension:
+
+```bash
+# Generate extension files
+python -m cli.browser_extension generate
+
+# Start extension server
+python -m cli.browser_extension
+```
+
+Install in Chrome:
+1. Go to `chrome://extensions/`
+2. Enable Developer mode
+3. Click "Load unpacked"
+4. Select the `browser_extension` directory
+
+## 📊 Training Intensities
+
+| Intensity | Description | Quality Boost |
+|-----------|-------------|---------------|
+| `low` | Light training | +0.01% |
+| `medium` | Standard training | +0.05% |
+| `high` | Intensive training | +0.10% |
+| `extreme` | Maximum training | +0.50% |
 
 ## 🔧 Configuration
 
-### GitHub Authentication
+Settings are stored in `settings/default.json`:
 
-The platform is pre-configured with GitHub PAT for full repository access:
-- Username: `pythpythpython`
-- Email: `pyth.pyth.python@gmail.com`
+```json
+{
+  "agi": {
+    "defaultBoard": "auto",
+    "multiAgentMode": true,
+    "targetQuality": 1.0
+  },
+  "github": {
+    "username": "your-username",
+    "autoPushMerge": true
+  },
+  "training": {
+    "defaultIntensity": "high",
+    "autoTrain": true
+  }
+}
+```
 
-### Adding MCP Servers
+## 📁 Project Structure
 
-1. Go to Settings → MCP Servers
-2. Click "Add MCP Server"
-3. Enter GitHub URL or documentation link
-4. The AGI will automatically configure the integration
+```
+OmniCoder-AGI/
+├── cli/
+│   ├── omnicoder_agi.py      # Main CLI
+│   ├── voice_input.py        # Voice input module
+│   ├── collaboration.py      # Collaboration features
+│   ├── training_engine.py    # Advanced training
+│   └── browser_extension.py  # Browser extension
+├── _data/
+│   └── agi_engines.yml       # Engine configurations
+├── agi_boards/
+│   └── boards_config.json    # Board configurations
+├── mcp_integrations/
+│   └── config.json           # MCP server configs
+├── settings/
+│   └── default.json          # Application settings
+├── database/
+│   ├── memory/               # Persistent memory
+│   ├── sessions/             # Session logs
+│   └── training/             # Training data
+└── init_omnicoder.py         # Initialization script
+```
 
-### Customization
+## 🔐 Security
 
-Edit `_data/agi_engines.yml` to:
-- Add new AGI engines
-- Configure domain specializations
-- Adjust quality thresholds
+- PAT tokens are stored locally in settings
+- Never commit tokens to version control
+- Use environment variables for sensitive data:
+  ```bash
+  export GITHUB_PAT=your_token
+  ```
 
-## 📊 Quality Metrics
+## 📈 Roadmap
 
-| Metric | Value |
-|--------|-------|
-| **Overall Quality** | 99.27% |
-| **Target Quality** | 100% |
-| **Test Coverage** | 100% |
-| **MCP Coverage** | 12/12 |
-| **Training Mode** | Continuous |
-
-## 🗺️ Roadmap
-
-- [ ] Reach 100% quality across all engines
-- [ ] Add voice input support
-- [ ] Real-time collaboration features
+- [x] Core CLI with multi-agent support
+- [x] GitHub integration
+- [x] 12 MCP integrations
+- [x] Training & hyperparameter tuning
+- [x] Voice input support
+- [x] Browser extension
+- [x] Collaboration features
+- [ ] 100% quality across all engines
 - [ ] Custom AGI engine training
-- [ ] More MCP integrations
-- [ ] Browser extension
+- [ ] Real-time streaming responses
+- [ ] Plugin architecture
 
-## 📜 Source References
+## 🤝 Contributing
 
-This project builds upon:
-
-- [Work](https://github.com/pythpythpython/Work) - AGI Training Hub
-- [volunteer-connect-hub](https://github.com/pythpythpython/volunteer-connect-hub) - UX/UI Automation
-- [microsoft/vscode](https://github.com/microsoft/vscode) - Interface foundation
-- [github/github-mcp-server](https://github.com/github/github-mcp-server) - GitHub MCP
-- [modelcontextprotocol/*-sdk](https://github.com/modelcontextprotocol) - MCP SDKs
+Contributions are welcome! Please read our contributing guidelines.
 
 ## 📄 License
 
-MIT License
+MIT License - see [LICENSE](LICENSE) for details.
+
+## 👤 Author
+
+**pythpythpython**
+- GitHub: [@pythpythpython](https://github.com/pythpythpython)
+- Email: pyth.pyth.python@gmail.com
 
 ---
 
-**OmniCoder-AGI** - *Building the future of coding automation, one problem at a time.*
-
-🌐 [Live Site](https://pythpythpython.github.io/OmniCoder-AGI) | 📧 [Contact](mailto:pyth.pyth.python@gmail.com) | 🐙 [GitHub](https://github.com/pythpythpython/OmniCoder-AGI)
+**OmniCoder-AGI** - *Coding at the speed of thought* 🚀
