@@ -23,7 +23,7 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
     <!-- Activity Bar -->
     <div class="activity-bar">
         <div class="activity-item active" data-panel="explorer" title="Explorer">
-            <i class="fas fa-files-o fa-file-code"></i>
+            <i class="fas fa-copy"></i>
         </div>
         <div class="activity-item" data-panel="search" title="Search">
             <i class="fas fa-search"></i>
@@ -36,9 +36,6 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
         </div>
         <div class="activity-item" data-panel="mcp" title="MCP Servers">
             <i class="fas fa-plug"></i>
-        </div>
-        <div class="activity-item" data-panel="testing" title="Testing & Training">
-            <i class="fas fa-flask"></i>
         </div>
         <div class="activity-spacer"></div>
         <div class="activity-item" data-panel="account" title="GitHub Account">
@@ -53,16 +50,12 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
     <div class="sidebar">
         <div class="sidebar-header">
             <span>Explorer</span>
-            <div class="sidebar-actions">
-                <button title="New File"><i class="fas fa-file-plus fa-plus"></i></button>
-                <button title="Refresh"><i class="fas fa-sync-alt"></i></button>
-            </div>
         </div>
         
         <!-- GitHub Repo Dropdown -->
         <div class="repo-dropdown">
             <div class="repo-dropdown-header">
-                <i class="fas fa-github"></i> Main Repositories
+                <i class="fab fa-github"></i> Main Repositories
             </div>
             <input type="text" class="repo-search" placeholder="Search repositories..." id="repo-search">
             <div class="repo-list" id="repo-list">
@@ -79,7 +72,7 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                     <i class="fas fa-book"></i>
                     <span>volunteer-connect-hub</span>
                 </div>
-                <div class="repo-item new-repo-option" data-repo="new">
+                <div class="repo-item" data-repo="new">
                     <i class="fas fa-plus"></i>
                     <span>Create New Repository</span>
                 </div>
@@ -87,31 +80,25 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
         </div>
 
         <div class="sidebar-content">
-            <!-- File Tree -->
             <div class="file-tree" id="file-tree">
                 <div class="file-item" data-path="/">
                     <i class="fas fa-chevron-down"></i>
                     <i class="fas fa-folder folder-icon"></i>
                     <span>OmniCoder-AGI</span>
                 </div>
-                <div class="file-item" data-path="/index.html" style="padding-left: 36px;">
-                    <i class="fab fa-html5 file-html"></i>
+                <div class="file-item" data-path="/index.html" style="padding-left: 32px;">
+                    <i class="fab fa-html5" style="color: #e34c26;"></i>
                     <span>index.html</span>
                 </div>
-                <div class="file-item" data-path="/assets" style="padding-left: 36px;">
+                <div class="file-item" data-path="/assets" style="padding-left: 32px;">
                     <i class="fas fa-chevron-right"></i>
                     <i class="fas fa-folder folder-icon"></i>
                     <span>assets</span>
                 </div>
-                <div class="file-item" data-path="/agi_boards" style="padding-left: 36px;">
+                <div class="file-item" data-path="/agi_boards" style="padding-left: 32px;">
                     <i class="fas fa-chevron-right"></i>
                     <i class="fas fa-folder folder-icon"></i>
                     <span>agi_boards</span>
-                </div>
-                <div class="file-item" data-path="/mcp_integrations" style="padding-left: 36px;">
-                    <i class="fas fa-chevron-right"></i>
-                    <i class="fas fa-folder folder-icon"></i>
-                    <span>mcp_integrations</span>
                 </div>
             </div>
         </div>
@@ -119,22 +106,21 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
 
     <!-- Editor Area -->
     <div class="editor-area">
-        <!-- Editor Tabs -->
         <div class="editor-tabs">
             <div class="editor-tab active" data-file="welcome">
                 <i class="fas fa-home"></i>
                 <span>Welcome</span>
-                <span class="close-btn"><i class="fas fa-times"></i></span>
             </div>
         </div>
 
-        <!-- Editor Content -->
         <div class="editor-content">
-            <!-- Code Editor -->
-            <div class="code-editor">
-                <div id="monaco-editor"></div>
-                
-                <!-- Welcome Screen (shown by default) -->
+            <!-- Multi-Agent Grid (Hidden by default) -->
+            <div class="multi-agent-grid" id="multi-agent-grid">
+                <!-- Agent windows will be dynamically created here -->
+            </div>
+
+            <!-- Code Editor / Welcome Screen -->
+            <div class="code-editor" id="code-editor">
                 <div id="welcome-screen" class="welcome-screen">
                     <div class="welcome-content">
                         <div class="welcome-logo">
@@ -145,15 +131,15 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                         
                         <div class="welcome-stats">
                             <div class="stat-card">
-                                <div class="stat-value" id="total-engines">50+</div>
+                                <div class="stat-value">50+</div>
                                 <div class="stat-label">AGI Engines</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-value" id="quality-score">99.27%</div>
+                                <div class="stat-value">99.27%</div>
                                 <div class="stat-label">Avg Quality</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-value" id="mcp-count">12</div>
+                                <div class="stat-value">12</div>
                                 <div class="stat-label">MCP Servers</div>
                             </div>
                         </div>
@@ -163,52 +149,45 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                                 <i class="fas fa-code"></i>
                                 Start Coding with AGI
                             </button>
-                            <button class="action-btn" id="open-repo">
-                                <i class="fas fa-folder-open"></i>
-                                Open Repository
+                            <button class="action-btn" id="open-settings">
+                                <i class="fas fa-cog"></i>
+                                Settings
                             </button>
-                            <button class="action-btn" id="view-boards">
-                                <i class="fas fa-th-large"></i>
-                                View AGI Boards
-                            </button>
+                        </div>
+
+                        <div class="engines-grid">
+                            <div class="engine-card">
+                                <div class="engine-icon planning"><i class="fas fa-project-diagram"></i></div>
+                                <div class="engine-name">PlanVoice-G4-G3-203</div>
+                                <div class="engine-specialty">Master Code Architect</div>
+                                <div class="engine-quality">99.36%</div>
+                            </div>
+                            <div class="engine-card">
+                                <div class="engine-icon creativity"><i class="fas fa-lightbulb"></i></div>
+                                <div class="engine-name">EvolveChart-G4-G3-171</div>
+                                <div class="engine-specialty">Software Architect</div>
+                                <div class="engine-quality">99.28%</div>
+                            </div>
+                            <div class="engine-card">
+                                <div class="engine-icon improvement"><i class="fas fa-chart-line"></i></div>
+                                <div class="engine-name">ImprovePlan-G4-G3-172</div>
+                                <div class="engine-specialty">Code Generator</div>
+                                <div class="engine-quality">99.35%</div>
+                            </div>
+                            <div class="engine-card">
+                                <div class="engine-icon language"><i class="fas fa-file-alt"></i></div>
+                                <div class="engine-name">LinguaChart-G4-G3-192</div>
+                                <div class="engine-specialty">Documentation Expert</div>
+                                <div class="engine-quality">99.28%</div>
+                            </div>
                         </div>
 
                         <div class="recent-section">
                             <h3>Recent Work</h3>
-                            <div class="recent-list" id="recent-work">
+                            <div class="recent-list">
                                 <div class="recent-item">
                                     <i class="fas fa-clock"></i>
                                     <span>No recent work yet. Start coding to see your history.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top-engines-section">
-                            <h3>Top Coding AGI Engines</h3>
-                            <div class="engines-grid">
-                                <div class="engine-card">
-                                    <div class="engine-icon planning"><i class="fas fa-project-diagram"></i></div>
-                                    <div class="engine-name">PlanVoice-G4-G3-203</div>
-                                    <div class="engine-specialty">Master Code Architect</div>
-                                    <div class="engine-quality">99.36%</div>
-                                </div>
-                                <div class="engine-card">
-                                    <div class="engine-icon creativity"><i class="fas fa-lightbulb"></i></div>
-                                    <div class="engine-name">EvolveChart-G4-G3-171</div>
-                                    <div class="engine-specialty">Software Architect Prime</div>
-                                    <div class="engine-quality">99.28%</div>
-                                </div>
-                                <div class="engine-card">
-                                    <div class="engine-icon improvement"><i class="fas fa-chart-line"></i></div>
-                                    <div class="engine-name">ImprovePlan-G4-G3-172</div>
-                                    <div class="engine-specialty">Autonomous Code Generator</div>
-                                    <div class="engine-quality">99.35%</div>
-                                </div>
-                                <div class="engine-card">
-                                    <div class="engine-icon language"><i class="fas fa-file-alt"></i></div>
-                                    <div class="engine-name">LinguaChart-G4-G3-192</div>
-                                    <div class="engine-specialty">Code Documentation Expert</div>
-                                    <div class="engine-quality">99.28%</div>
                                 </div>
                             </div>
                         </div>
@@ -221,16 +200,16 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                 <div class="agent-header">
                     <i class="fas fa-robot"></i>
                     <h3>OmniCoder Agent</h3>
-                    <div class="agent-status">
+                    <div class="agent-status-badge">
                         <span class="dot"></span>
                         <span>Active</span>
                     </div>
                 </div>
 
-                <!-- AGI Board Selector -->
-                <div class="agi-board-selector">
+                <!-- Agent Board Selector -->
+                <div class="agent-selector">
                     <label>Active AGI Board</label>
-                    <select class="agi-board-select" id="agi-board-select">
+                    <select class="agent-select" id="agent-board-select">
                         <option value="auto">🤖 Auto-Select (Recommended)</option>
                         <optgroup label="Coding Boards">
                             <option value="code-architect">🏗️ Code Architecture</option>
@@ -241,13 +220,8 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                         <optgroup label="Testing Boards">
                             <option value="unit-testing">🧪 Unit Testing</option>
                             <option value="integration-testing">🔗 Integration Testing</option>
-                            <option value="performance-testing">⚡ Performance Testing</option>
                         </optgroup>
-                        <optgroup label="Documentation Boards">
-                            <option value="doc-generator">📝 Documentation Generator</option>
-                            <option value="api-docs">📖 API Documentation</option>
-                        </optgroup>
-                        <optgroup label="Specialized Boards">
+                        <optgroup label="Specialized">
                             <option value="security">🛡️ Security Analysis</option>
                             <option value="optimization">🚀 Optimization</option>
                             <option value="refactoring">♻️ Refactoring</option>
@@ -255,18 +229,31 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                     </select>
                 </div>
 
-                <!-- Quality Progress -->
-                <div class="quality-section" style="padding: 12px;">
-                    <div class="quality-header" style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span style="font-size: 11px; color: var(--text-secondary);">TRAINING QUALITY</span>
-                        <span style="font-size: 11px; color: var(--success);">99.27% → 100%</span>
+                <!-- Agent Count Selector -->
+                <div class="agent-count-selector">
+                    <label>Number of Agents (Multi-Agent Mode)</label>
+                    <div class="agent-count-buttons">
+                        <button class="agent-count-btn active" data-count="1">1</button>
+                        <button class="agent-count-btn" data-count="2">2</button>
+                        <button class="agent-count-btn" data-count="3">3</button>
+                        <button class="agent-count-btn" data-count="4">4</button>
+                        <button class="agent-count-btn" data-count="5">5</button>
+                        <button class="agent-count-btn" data-count="6">6</button>
+                    </div>
+                </div>
+
+                <!-- Progress -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span>TRAINING QUALITY</span>
+                        <span style="color: var(--success);">99.27% → 100%</span>
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 99.27%;"></div>
                     </div>
                 </div>
 
-                <!-- Chat Messages -->
+                <!-- Messages -->
                 <div class="agent-messages" id="agent-messages">
                     <div class="message">
                         <div class="message-header">
@@ -276,27 +263,15 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                         </div>
                         <div class="message-content">
                             <p>👋 Welcome to <strong>OmniCoder-AGI</strong>!</p>
-                            <p>I'm powered by 50+ specialized AGI engines trained to 99.27% quality. I can help you with:</p>
+                            <p>I'm powered by 50+ specialized AGI engines. Select 1-6 agents and describe your task!</p>
                             <ul>
                                 <li>🏗️ Code architecture and design</li>
-                                <li>⚡ Code generation and completion</li>
-                                <li>🔍 Code review and optimization</li>
-                                <li>🐛 Bug detection and fixing</li>
-                                <li>📝 Documentation generation</li>
-                                <li>🧪 Testing and verification</li>
+                                <li>⚡ Code generation</li>
+                                <li>🔍 Code review</li>
+                                <li>🐛 Bug detection</li>
+                                <li>📝 Documentation</li>
+                                <li>🧪 Testing</li>
                             </ul>
-                            <p>Select a repository from the dropdown, or start a new project!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Work Output Section -->
-                <div class="work-output" id="work-output" style="display: none;">
-                    <h4><i class="fas fa-check-circle" style="color: var(--success);"></i> Latest Work Completed</h4>
-                    <div class="work-item">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>Changes committed and pushed</span>
-                            <a href="#" class="work-link">View Commit →</a>
                         </div>
                     </div>
                 </div>
@@ -312,19 +287,12 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                             <i class="fas fa-plus"></i>
                             <span>Context</span>
                         </button>
-                        <button class="toolbar-btn" id="voice-input" title="Voice Input">
-                            <i class="fas fa-microphone"></i>
-                        </button>
                     </div>
                     <textarea class="agent-textarea" id="agent-input" placeholder="Describe what you want to build, fix, or improve..."></textarea>
                     <div class="input-actions">
-                        <div class="multi-agent-toggle">
-                            <div class="toggle-switch" id="multi-agent-toggle"></div>
-                            <span>Multi-Agent Mode</span>
-                        </div>
                         <button class="send-btn" id="send-btn">
                             <i class="fas fa-paper-plane"></i>
-                            <span>Send</span>
+                            <span>Run Agents</span>
                         </button>
                     </div>
                 </div>
@@ -336,31 +304,23 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
 <!-- Status Bar -->
 <div class="status-bar">
     <div class="status-left">
-        <div class="status-item" id="github-status">
+        <div class="status-item">
             <i class="fas fa-check-circle"></i>
             <span>GitHub Connected</span>
         </div>
-        <div class="status-item" id="branch-status">
+        <div class="status-item">
             <i class="fas fa-code-branch"></i>
             <span>main</span>
         </div>
-        <div class="status-item" id="sync-status">
-            <i class="fas fa-sync-alt"></i>
-            <span>Synced</span>
-        </div>
     </div>
     <div class="status-right">
-        <div class="status-item" id="agi-status">
+        <div class="status-item">
             <i class="fas fa-robot"></i>
             <span>12 MCP Active</span>
         </div>
-        <div class="status-item" id="quality-status">
+        <div class="status-item">
             <i class="fas fa-chart-line"></i>
             <span>Quality: 99.27%</span>
-        </div>
-        <div class="status-item" id="learning-status">
-            <i class="fas fa-brain"></i>
-            <span>Learning: Continuous</span>
         </div>
     </div>
 </div>
@@ -401,23 +361,22 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
             </div>
             <div class="settings-content" id="settings-content">
                 <!-- General Settings -->
-                <div class="settings-section" id="section-general">
+                <div class="settings-section active" id="section-general">
                     <h3>General Settings</h3>
                     <div class="settings-row">
                         <label>Theme</label>
-                        <select class="agi-board-select">
+                        <select>
                             <option value="dark">Dark (VS Code)</option>
                             <option value="light">Light</option>
-                            <option value="high-contrast">High Contrast</option>
                         </select>
                     </div>
                     <div class="settings-row">
                         <label>Auto-save</label>
-                        <div class="toggle-switch active"></div>
+                        <div class="toggle-switch active" id="toggle-autosave"></div>
                     </div>
                     <div class="settings-row">
                         <label>Learning Mode</label>
-                        <select class="agi-board-select">
+                        <select>
                             <option value="continuous">Continuous (Recommended)</option>
                             <option value="periodic">Periodic</option>
                             <option value="manual">Manual</option>
@@ -426,7 +385,7 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                 </div>
 
                 <!-- GitHub Settings -->
-                <div class="settings-section" id="section-github" style="display: none;">
+                <div class="settings-section" id="section-github">
                     <h3>GitHub Configuration</h3>
                     <div class="settings-row">
                         <label>GitHub Username</label>
@@ -442,71 +401,58 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                     </div>
                     <div class="settings-row">
                         <label>Auto Push & Merge</label>
-                        <div class="toggle-switch active"></div>
+                        <div class="toggle-switch active" id="toggle-autopush"></div>
                     </div>
                 </div>
 
                 <!-- MCP Settings -->
-                <div class="settings-section" id="section-mcp" style="display: none;">
+                <div class="settings-section" id="section-mcp">
                     <h3>MCP Server Configuration</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">
-                        Add and configure Model Context Protocol servers for enhanced capabilities.
+                    <p style="color: var(--text-secondary); font-size: 12px; margin-bottom: 16px;">
+                        Add and configure Model Context Protocol servers.
                     </p>
                     
-                    <div class="mcp-settings-section">
-                        <div class="mcp-item">
-                            <div class="mcp-item-info">
-                                <div class="mcp-item-icon"><i class="fab fa-github"></i></div>
-                                <div>
-                                    <div class="mcp-item-name">GitHub MCP Server</div>
-                                    <div class="mcp-item-status">✓ Connected</div>
-                                </div>
+                    <div class="mcp-item">
+                        <div class="mcp-item-info">
+                            <div class="mcp-item-icon"><i class="fab fa-github"></i></div>
+                            <div>
+                                <div class="mcp-item-name">GitHub MCP Server</div>
+                                <div class="mcp-item-status">✓ Connected</div>
                             </div>
-                            <div class="toggle-switch active"></div>
                         </div>
-                        
-                        <div class="mcp-item">
-                            <div class="mcp-item-info">
-                                <div class="mcp-item-icon"><i class="fab fa-js"></i></div>
-                                <div>
-                                    <div class="mcp-item-name">TypeScript SDK</div>
-                                    <div class="mcp-item-status">✓ Connected</div>
-                                </div>
-                            </div>
-                            <div class="toggle-switch active"></div>
-                        </div>
-                        
-                        <div class="mcp-item">
-                            <div class="mcp-item-info">
-                                <div class="mcp-item-icon"><i class="fab fa-python"></i></div>
-                                <div>
-                                    <div class="mcp-item-name">Python SDK</div>
-                                    <div class="mcp-item-status">✓ Connected</div>
-                                </div>
-                            </div>
-                            <div class="toggle-switch active"></div>
-                        </div>
-
-                        <div class="mcp-item">
-                            <div class="mcp-item-info">
-                                <div class="mcp-item-icon"><i class="fas fa-book"></i></div>
-                                <div>
-                                    <div class="mcp-item-name">OpenStax MCP</div>
-                                    <div class="mcp-item-status">✓ Connected</div>
-                                </div>
-                            </div>
-                            <div class="toggle-switch active"></div>
-                        </div>
-                        
-                        <button class="add-mcp-btn" id="add-mcp-btn">
-                            <i class="fas fa-plus"></i>
-                            <span>Add MCP Server (GitHub URL or Docs)</span>
-                        </button>
+                        <div class="toggle-switch active"></div>
                     </div>
+                    
+                    <div class="mcp-item">
+                        <div class="mcp-item-info">
+                            <div class="mcp-item-icon"><i class="fab fa-js"></i></div>
+                            <div>
+                                <div class="mcp-item-name">TypeScript SDK</div>
+                                <div class="mcp-item-status">✓ Connected</div>
+                            </div>
+                        </div>
+                        <div class="toggle-switch active"></div>
+                    </div>
+                    
+                    <div class="mcp-item">
+                        <div class="mcp-item-info">
+                            <div class="mcp-item-icon"><i class="fab fa-python"></i></div>
+                            <div>
+                                <div class="mcp-item-name">Python SDK</div>
+                                <div class="mcp-item-status">✓ Connected</div>
+                            </div>
+                        </div>
+                        <div class="toggle-switch active"></div>
+                    </div>
+                    
+                    <button class="add-mcp-btn" id="add-mcp-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Add MCP Server (GitHub URL or Docs)</span>
+                    </button>
                 </div>
 
                 <!-- API Tokens -->
-                <div class="settings-section" id="section-api" style="display: none;">
+                <div class="settings-section" id="section-api">
                     <h3>API Token Management</h3>
                     <div class="settings-row">
                         <label>OpenAI API Key</label>
@@ -523,26 +469,20 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                 </div>
 
                 <!-- Tracking -->
-                <div class="settings-section" id="section-tracking" style="display: none;">
+                <div class="settings-section" id="section-tracking">
                     <h3>Tracking & Analytics</h3>
-                    <div class="tracking-panel">
-                        <div class="tracking-header">
-                            <h4>Session Statistics</h4>
-                            <button class="toolbar-btn">Export</button>
+                    <div class="tracking-stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="tasks-completed">0</div>
+                            <div class="stat-label">Tasks Completed</div>
                         </div>
-                        <div class="tracking-stats">
-                            <div class="stat-card">
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Tasks Completed</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Lines Generated</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">0</div>
-                                <div class="stat-label">Commits Made</div>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="lines-generated">0</div>
+                            <div class="stat-label">Lines Generated</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="commits-made">0</div>
+                            <div class="stat-label">Commits Made</div>
                         </div>
                     </div>
                     <div class="settings-row">
@@ -556,38 +496,35 @@ title: OmniCoder-AGI - The World's Most Advanced Coding Automation AGI Suite
                 </div>
 
                 <!-- Upgrade Section -->
-                <div class="settings-section" id="section-upgrade" style="display: none;">
+                <div class="settings-section" id="section-upgrade">
                     <h3>Updating and Upgrading OmniCoder-AGI</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">
-                        Use this section to request upgrades, fixes, or new features. The AGI boards will analyze your request and implement changes.
+                    <p style="color: var(--text-secondary); font-size: 12px; margin-bottom: 16px;">
+                        Request upgrades, fixes, or new features. The AGI boards will analyze and implement changes.
                     </p>
                     
                     <div class="upgrade-section">
                         <h4><i class="fas fa-magic"></i> Request Upgrade</h4>
-                        <textarea class="upgrade-textarea" placeholder="Describe what you want to add, change, fix, or improve in OmniCoder-AGI...
+                        <textarea class="upgrade-textarea" id="upgrade-textarea" placeholder="Describe what you want to add, change, fix, or improve...
 
 Examples:
 - Add support for new MCP server
-- Improve the code generation quality
+- Improve code generation quality
 - Fix a specific bug or issue
-- Add new AGI board for specific task
-- Tune hyperparameters for better results"></textarea>
+- Add new AGI board for specific task"></textarea>
                         <button class="upgrade-btn" id="submit-upgrade">
                             <i class="fas fa-rocket"></i>
                             Submit Upgrade Request
                         </button>
                     </div>
 
-                    <div class="quality-section" style="margin-top: 20px;">
-                        <h4>Current Quality Status</h4>
-                        <div class="quality-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 99.27%;"></div>
-                            </div>
-                            <div class="progress-labels">
-                                <span>Current: 99.27%</span>
-                                <span>Target: 100%</span>
-                            </div>
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 12px; margin-bottom: 12px;">Current Quality Status</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99.27%;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--text-secondary);">
+                            <span>Current: 99.27%</span>
+                            <span>Target: 100%</span>
                         </div>
                     </div>
                 </div>
@@ -595,212 +532,3 @@ Examples:
         </div>
     </div>
 </div>
-
-<!-- Additional Styles for Welcome Screen -->
-<style>
-.welcome-screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    padding: 40px;
-}
-
-.welcome-content {
-    max-width: 900px;
-    text-align: center;
-}
-
-.welcome-logo {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 40px;
-    color: white;
-}
-
-.welcome-content h1 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.tagline {
-    color: var(--text-secondary);
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.welcome-stats {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.welcome-stats .stat-card {
-    background: var(--bg-secondary);
-    padding: 20px 40px;
-    border-radius: 8px;
-}
-
-.welcome-stats .stat-value {
-    font-size: 32px;
-}
-
-.quick-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.action-btn {
-    padding: 12px 24px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
-}
-
-.action-btn:hover {
-    background: var(--bg-hover);
-    border-color: var(--accent-blue);
-}
-
-.action-btn.primary {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-    color: white;
-}
-
-.action-btn.primary:hover {
-    background: #005a9e;
-}
-
-.recent-section, .top-engines-section {
-    text-align: left;
-    margin-top: 30px;
-}
-
-.recent-section h3, .top-engines-section h3 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    color: var(--text-secondary);
-}
-
-.recent-list {
-    background: var(--bg-secondary);
-    border-radius: 8px;
-    padding: 16px;
-}
-
-.recent-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 13px;
-    color: var(--text-secondary);
-}
-
-.engines-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-}
-
-.engine-card {
-    background: var(--bg-secondary);
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    transition: all 0.2s;
-}
-
-.engine-card:hover {
-    background: var(--bg-hover);
-    transform: translateY(-2px);
-}
-
-.engine-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 12px;
-    font-size: 20px;
-}
-
-.engine-icon.planning { background: linear-gradient(135deg, #007acc, #0098ff); color: white; }
-.engine-icon.creativity { background: linear-gradient(135deg, #c586c0, #ff79c6); color: white; }
-.engine-icon.improvement { background: linear-gradient(135deg, #4ec9b0, #50fa7b); color: white; }
-.engine-icon.language { background: linear-gradient(135deg, #ce9178, #ffb86c); color: white; }
-
-.engine-name {
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.engine-specialty {
-    font-size: 11px;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-}
-
-.engine-quality {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--success);
-}
-
-.repo-badge {
-    background: var(--accent-blue);
-    color: white;
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: auto;
-}
-
-@media (max-width: 1200px) {
-    .engines-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 800px) {
-    .welcome-stats {
-        flex-direction: column;
-    }
-    
-    .quick-actions {
-        flex-direction: column;
-    }
-    
-    .engines-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
