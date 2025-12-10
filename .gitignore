@@ -22,6 +22,20 @@ Thumbs.db
 # Environment
 .env
 .env.local
+.env.*
+
+# Secrets - NEVER commit these
+**/secrets/
+**/credentials/
+*.secret
+*.key
+*.pem
+*.p12
+.secrets
+
+# Files that might contain tokens
+# Use self-upgrade-prompt.template.txt instead
+self-upgrade-prompt.txt
 
 # Temporary files
 tmp/
@@ -33,3 +47,31 @@ temp/
 # Bundle
 .bundle/
 Gemfile.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/

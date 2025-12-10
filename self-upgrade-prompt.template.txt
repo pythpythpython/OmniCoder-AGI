@@ -1,0 +1,39 @@
+# OmniCoder-AGI Self-Upgrade Prompt Template
+# ==========================================
+#
+# Copy this file to 'self-upgrade-prompt.txt' and add your upgrade instructions.
+# The 'self-upgrade-prompt.txt' file is gitignored to prevent accidental secret exposure.
+#
+# Usage:
+#   cp self-upgrade-prompt.template.txt self-upgrade-prompt.txt
+#   # Edit self-upgrade-prompt.txt with your instructions
+#   python -m cli.omnicoder_agi upgrade --from-file self-upgrade-prompt.txt --auto
+#
+# IMPORTANT: Never put secrets (PAT tokens, API keys) in this file!
+# Use the --token flag or environment variables instead:
+#   export GITHUB_PAT=your_token
+#   python -m cli.omnicoder_agi upgrade --from-file self-upgrade-prompt.txt --auto
+#
+# Or pass the token directly (it will be filtered from logs):
+#   python -m cli.omnicoder_agi upgrade --from-file self-upgrade-prompt.txt --token YOUR_TOKEN --auto
+
+# ============================================
+# YOUR UPGRADE INSTRUCTIONS BELOW THIS LINE:
+# ============================================
+
+Upgrade the OmniCoder-AGI system with the following improvements:
+
+1. Add voice input support
+2. Reach 100% quality across all engines
+3. Real-time collaboration features
+4. Custom AGI engine training
+5. Training that takes to the extreme next level
+6. Browser extension integration
+
+Focus areas:
+- Improve code generation accuracy
+- Enhance test coverage
+- Optimize response time
+- Add more MCP integrations
+
+Please run comprehensive training and hyperparameter tuning after implementing these changes.

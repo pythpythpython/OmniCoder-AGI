@@ -1613,12 +1613,46 @@ def cmd_upgrade(args, agi: OmniCoderAGI, settings: SettingsManager):
     
     upgrade_manager = UpgradeManager(agi, settings)
     
+    # Read description from file if --from-file is specified
+    description = args.description
+    if args.from_file:
+        prompt_file = Path(args.from_file)
+        if prompt_file.exists():
+            file_content = prompt_file.read_text(encoding="utf-8").strip()
+            # Filter out any lines that look like secrets (PAT tokens, etc.)
+            filtered_lines = []
+            for line in file_content.split("\n"):
+                # Skip lines that contain PAT tokens or other secrets
+                if "github_pat_" in line.lower() or "ghp_" in line.lower():
+                    print_warning(f"Skipping line with detected secret")
+                    continue
+                filtered_lines.append(line)
+            description = "\n".join(filtered_lines)
+            print_info(f"Loaded upgrade prompt from: {prompt_file}")
+        else:
+            print_error(f"File not found: {prompt_file}")
+            return
+    
+    if not description or description == "General improvements":
+        print_error("Please provide a description or use --from-file")
+        return
+    
     print_header(f"Upgrade {APP_NAME}")
     
+    # Configure GitHub if token provided
+    if args.token:
+        settings.set_github_pat(args.token)
+        agi.github = GitHubClient(
+            token=args.token,
+            username=settings.get("github.username"),
+            email=settings.get("github.email")
+        )
+        print_success("GitHub PAT configured")
+    
     if args.auto:
-        result = upgrade_manager.run_self_upgrade(args.description)
+        result = upgrade_manager.run_self_upgrade(description)
     else:
-        plan = upgrade_manager.build_upgrade_plan(args.description, mode=args.mode)
+        plan = upgrade_manager.build_upgrade_plan(description, mode=args.mode)
         
         if args.execute:
             result = upgrade_manager.execute_upgrade(plan)
@@ -2040,6 +2074,8 @@ def build_parser() -> argparse.ArgumentParser:
     # ---- upgrade ----
     upgrade_parser = subparsers.add_parser("upgrade", help="Run self-upgrade")
     upgrade_parser.add_argument("description", nargs="?", default="General improvements", help="Upgrade description")
+    upgrade_parser.add_argument("--from-file", "-f", help="Read upgrade prompt from file (e.g., self-upgrade-prompt.txt)")
+    upgrade_parser.add_argument("--token", "-t", help="GitHub PAT token for authentication")
     upgrade_parser.add_argument("--mode", choices=["self", "feature", "bugfix"], default="self")
     upgrade_parser.add_argument("--execute", action="store_true", help="Execute the plan")
     upgrade_parser.add_argument("--auto", action="store_true", help="Auto-execute upgrade")

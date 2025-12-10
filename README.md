@@ -119,7 +119,22 @@ omnicoder-agi upgrade "Add voice input support"
 
 # Execute upgrade automatically
 omnicoder-agi upgrade "Add new feature" --auto
+
+# Load upgrade instructions from file (RECOMMENDED)
+cp self-upgrade-prompt.template.txt self-upgrade-prompt.txt
+# Edit self-upgrade-prompt.txt with your instructions
+omnicoder-agi upgrade --from-file self-upgrade-prompt.txt --auto
+
+# With GitHub PAT token
+omnicoder-agi upgrade --from-file self-upgrade-prompt.txt --token $GITHUB_PAT --auto
+
+# Or use the helper script
+./scripts/self-upgrade.sh self-upgrade-prompt.txt $GITHUB_PAT
 ```
+
+> ⚠️ **IMPORTANT**: Never put secrets (PAT tokens, API keys) in files that will be committed!
+> Use the `--token` flag or environment variables instead. The `self-upgrade-prompt.txt` 
+> file is gitignored by default to prevent accidental secret exposure.
 
 ### MCP Servers
 ```bash
@@ -296,6 +311,37 @@ OmniCoder-AGI/
   ```bash
   export GITHUB_PAT=your_token
   ```
+
+### Handling Secrets in Git
+
+If you accidentally commit a secret:
+
+```bash
+# If secret is in the last commit only
+git reset HEAD~1
+# Edit the file to remove the secret
+git add .
+git commit -m "Your message"
+git push --force origin main
+
+# Or use the helper script
+./scripts/remove-secret-from-history.sh self-upgrade-prompt.txt
+```
+
+### Fixing Divergent Branches
+
+If you see "divergent branches" errors:
+
+```bash
+# Configure git to use rebase
+git config pull.rebase true
+
+# Pull with rebase
+git pull --rebase origin main
+
+# Or use the helper script
+./scripts/fix-git-divergence.sh
+```
 
 ## 📈 Roadmap
 
